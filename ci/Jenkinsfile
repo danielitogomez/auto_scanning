@@ -3,17 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-
-           options {
-                timeout(time: 5, unit: 'MINUTES')
-            }
-
-            steps {
-                git 'https://github.com/danielitogomez/automation-scanning.git'
-            }
-        }
-
         stage('Run Scan') {
 
            options {
@@ -21,15 +10,18 @@ pipeline {
             }
 
             steps {
-                sh './run.sh'  
+                git 'https://github.com/danielitogomez/automation-scanning'
+                sh 'ls -alh'  
             }
-
-            post {
+            
+           post {
                 always {
                     sh 'echo "todo bien?"'
                 }
             }
-        }       
+            
+            
+        }
         
     }
 }
