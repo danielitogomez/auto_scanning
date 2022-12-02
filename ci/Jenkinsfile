@@ -10,7 +10,7 @@ pipeline {
             }
 
             steps {
-                git 'https://github.com/danielitogomez/java-rest-api-calculator'
+                git 'https://github.com/danielitogomez/automation-scanning.git'
             }
         }
 
@@ -21,7 +21,7 @@ pipeline {
             }
 
             steps {
-                sh './mvnw test'  
+                sh './run.sh'  
             }
 
             post {
