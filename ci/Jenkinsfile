@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+
+           options {
+                timeout(time: 5, unit: 'MINUTES')
+            }
+
+            steps {
+                git 'https://github.com/danielitogomez/java-rest-api-calculator'
+            }
+        }
+
+        stage('Run Scan') {
+
+           options {
+                timeout(time: 10, unit: 'MINUTES')
+            }
+
+            steps {
+                sh './mvnw test'  
+            }
+
+            post {
+                always {
+                    sh 'echo "todo bien?"'
+                }
+            }
+        }       
+        
+    }
+}
