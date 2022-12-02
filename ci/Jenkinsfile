@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+    'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
+  }
+
     stages {
 
         stage('Run Scan') {
@@ -11,7 +15,8 @@ pipeline {
 
             steps {
                 git 'https://github.com/danielitogomez/automation-scanning'
-                sh 'chmod +x run.sh && ./run.sh'
+                sh 'docker version'
+                //sh 'chmod +x run.sh && ./run.sh'
             }
             
            post {
