@@ -11,7 +11,7 @@ pipeline {
 
             steps {
                 git 'https://github.com/danielitogomez/automation-scanning'
-                sh 'ls -alh'  
+                sh './run.sh'
             }
             
            post {
