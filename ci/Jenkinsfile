@@ -11,8 +11,7 @@ pipeline {
 
             steps {
                 git 'https://github.com/danielitogomez/automation-scanning'
-                sh 'docker version'
-                //sh 'chmod +x run.sh && ./run.sh'
+                sh 'chmod +x run.sh && ./run.sh'
             }
             
            post {
