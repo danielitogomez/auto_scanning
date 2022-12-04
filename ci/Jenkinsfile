@@ -15,8 +15,8 @@ pipeline {
             }
             
            post {
-                always {
-                    sh 'echo "todo bien?"'
+                success {
+                    sh 'echo "### Scanning finish success ###"'
                 }
             }
             
