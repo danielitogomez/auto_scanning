@@ -2,4 +2,4 @@
 
 name="network-scan"
 
-docker build -t $name . && docker run -it $name
+docker build -t $name . && docker run $name
