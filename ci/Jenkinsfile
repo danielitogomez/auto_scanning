@@ -12,16 +12,14 @@ pipeline {
             steps {
                 git 'https://github.com/danielitogomez/automation-scanning'
                 sh 'chmod +x run.sh && ./run.sh'
-            }
-            
-           post {
+            }    
+        }
+
+            post {
                 success {
                     sh 'echo "### Scanning finish success ###"'
                 }
             }
-            
-            
-        }
         
     }
 }
