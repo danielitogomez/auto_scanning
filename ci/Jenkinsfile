@@ -14,12 +14,10 @@ pipeline {
                 sh 'chmod +x run.sh && ./run.sh'
             }    
         }
-
+    }
             post {
                 success {
                     sh 'echo "### Scanning finish success ###"'
                 }
             }
-        
-    }
 }
