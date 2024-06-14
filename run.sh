@@ -1,5 +1,5 @@
 #!/bin/bash
 
-name="network-scan"
+name="target-scan"
 
 docker build -t $name . && docker run $name

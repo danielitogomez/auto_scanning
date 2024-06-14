@@ -1,8 +1,21 @@
+# Use the latest Alpine image as the base
 FROM alpine:latest
 
+# Set the working directory
 WORKDIR /script
-COPY network-scan.sh .
 
-RUN apk add --no-cache bash && chmod +x /script/network-scan.sh && apk add nmap --no-cache && apk add nmap-scripts
+# Copy the target scan script and targets file into the container
+COPY target-scan.sh .
+COPY targets.txt .
 
-ENTRYPOINT ["/script/network-scan.sh"]
+# Install necessary packages in one layer and clean up to keep the image small
+RUN apk update && \
+    apk add --no-cache \
+    bash \
+    nmap \
+    nmap-scripts && \
+    chmod +x /script/target-scan.sh && \
+    rm -rf /var/cache/apk/*
+
+# Set the entry point to the target scan script
+ENTRYPOINT ["/script/target-scan.sh"]
