@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - master
+    paths:
+      - targets.txt
   pull_request:
     branches:
       - master
+    paths:
+      - targets.txt
   workflow_dispatch: # Allows manual triggering
 
 jobs:
